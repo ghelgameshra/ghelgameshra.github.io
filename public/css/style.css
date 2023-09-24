@@ -1,0 +1,3 @@
+#darkMode:checked ~ label div.dark-mode-button{
+    @apply translate-x-6;
+}
