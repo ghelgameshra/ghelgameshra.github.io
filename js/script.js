@@ -1,50 +1,92 @@
-// navbar sosmed menu
-const menuToggle = document.querySelector('.menu-toggle input');
-const nav = document.querySelector('nav ul');
-
-menuToggle.addEventListener('click', function(){
-    nav.classList.toggle('slide');
+let eyeButton = $('#showPassword');
+let password = $('#password');
+eyeButton.on('click', function(){
+    if( password.attr("type") == 'password' ){
+        password.attr("type", "text");
+        $('#eyeIcon').removeClass('fa-regular fa-eye-slash');
+        $('#eyeIcon').addClass('fa-regular fa-eye');
+    } else {
+        password.attr("type", "password");
+        $('#eyeIcon').removeClass('fa-regular fa-eye');
+        $('#eyeIcon').addClass('fa-regular fa-eye-slash');
+    }
 });
 
 
-// accordion button
-document.querySelectorAll('.accordion__button').forEach( button => {
-    button.addEventListener('click', () => {
-        const accordionContent = button.nextElementSibling;
+// cek setting darkMode
+let mode = localStorage.getItem('darkMode');
+if(mode){
+    $('#dark-mode-button').addClass('translate-x-4');
+    $('html').addClass('dark');
+}
 
-        // tambah class accordion__button--active
-        button.classList.toggle('accordion__button--active');
+// set darkMode
+$('#darkMode').on('click', function(){
+    let i = 1;
+    console.log(i += 1);
+    let mode = localStorage.getItem('darkMode');
+    if(mode){
+        $('#dark-mode-button').removeClass('translate-x-4');
+        $('html').removeClass('dark');
+        localStorage.removeItem('darkMode');
 
-        // setelah tombol diklik atau saat ada class accordion__button--active
-        if( button.classList.contains('accordion__button--active') ){
-            accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
-        } else {
-            accordionContent.style.maxHeight = 0;
-        }
+    } else {
+        $('#dark-mode-button').addClass('translate-x-4');
+        $('html').addClass('dark');
+        localStorage.setItem('darkMode', true);
+    }
+});
 
+$('#loginButton').on('click', () => {
+    let nik = '2015451256';
+    let password = '1234';
+    if(nik === '2015451256' && password === '1234'){
+        window.location.href="/public/home.html";
+    } else {
+        alert('Login gagal');
+    }
+});
+
+// dropdown izin
+let izinDropdown = $('#inputDropdown');
+$('#inputDropdownButton').on('click', ()=>{
+    if( izinDropdown.hasClass('hidden') ){
+        izinDropdown.removeClass('hidden');
+    } else {
+        izinDropdown.addClass('hidden');
+    }
+});
+
+// dropdown pendidikan
+let pendidikanDropdown = $('#pendidikanDropdown');
+$('#pendidikanDropdownButton').on('click', ()=>{
+    if( pendidikanDropdown.hasClass('hidden') ){
+        pendidikanDropdown.removeClass('hidden');
+    } else {
+        pendidikanDropdown.addClass('hidden');
+    }
+});
+
+let sidebarMenu = $('#sidebarMenu');
+let bg = $('#backdrop');
+$('#sidebarButton').on('click', ()=>{
+    if( sidebarMenu.hasClass('hidden') ){
+        sidebarMenu.removeClass('hidden');
+        bg.removeClass('hidden');
+    }
+
+    $('#closeSidebarButton').on('click', ()=>{
+        sidebarMenu.addClass('hidden');
+        pendidikanDropdown.addClass('hidden');
+        izinDropdown.addClass('hidden');
+        bg.addClass('hidden');
     });
-} );
+    
+});
 
-
-// data
-let namaSaya = "RIZKY ANDRIAWAN";
-document.getElementById('nama').innerHTML = namaSaya;
-
-let mahasiswa = "Mahasiswa Teknik Informatika";
-document.getElementById('mahasiswa').innerHTML = mahasiswa;
-
-let universitas = "[Universitas Islam Raden Rahmat Malang]";
-document.getElementById('univ').innerHTML = universitas;
-
-var fbLink = document.getElementById('fb-link');
-fbLink.href = "https://www.facebook.com/ghelgameshra.ghelgameshra/";
-
-var igLink = document.getElementById('ig-link');
-igLink.href = "https://www.instagram.com/ghelgameshra?r=nametag";
-
-var twitterLink = document.getElementById('twitter-link');
-twitterLink.href = "https://twitter.com/ghelgameshra";
-
-var githubLink = document.getElementById('github-link');
-githubLink.href = "https://github.com/ghelgameshra";
-
+$('#backdrop').on('click', ()=>{
+    sidebarMenu.addClass('hidden');
+    pendidikanDropdown.addClass('hidden');
+    izinDropdown.addClass('hidden');
+    bg.addClass('hidden');
+});
