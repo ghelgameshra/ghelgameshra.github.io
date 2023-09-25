@@ -7,9 +7,64 @@
 
   <link rel="stylesheet" href="/public/css/tailwind_output.css">
   <link rel="stylesheet" href="/public/fontawesome/css/all.css">
+  <link rel="icon" href="/public/images/rocket.svg">
+  <script src="/public/js/code.jquery.com_jquery-3.7.1.js"></script>
 </head>
-<body>
-  <h1 class="text-2xl font-bold">Hello World</h1>
-  <i class="fa-solid fa-user"></i>
+<body  class="bg-gray-100 text-dark dark:bg-dark dark:text-gray-50">
+  <main>
+    <nav class="flex flex-row items-center mx-auto px-10 sm:px-20 py-4 shadow-md">
+
+      <!-- logo -->
+      <div class="font-black flex gap-2 cursor-pointer">
+        <div class="w-6 h-max bg-dark text-gray-100 text-center rounded-md dark:bg-gray-100 dark:text-dark">
+          <p>R</p>
+        </div>
+        <h1>RIZKY ANDRIAWAN</h1>
+      </div>
+
+      <!-- sidebar button -->
+      <div class="ml-auto">
+        <button id="sidebarButton" onclick="showSidebar()">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+      </div>
+    </nav>
+
+    <header class="mx-auto px-10 sm:px-20 py-4 mt-4 flex flex-col gap-16">
+      <div class="flex flex-col gap-1">
+        <p class="font-bold text-secondary">Selamat Datang Di Web Portofolio Saya,</p>
+        <h1 class="font-black text-4xl md:text-6xl">Rizky Andriawan</h1>
+        <caption class="text-sm">Designer & Junior Web Developer</caption>
+      </div>
+    </header>
+
+    <section class="mt-10 px-10 py-10 sm:px-20 sm:py-20 mx-auto bg-gradient-to-br from-main via-secondary to-dark text-gray-100">
+      <!-- icon -->
+      <div class="flex flex-col sm:flex-row gap-16">
+        <div class="flex flex-col gap-3 sm:w-1/2 grow">
+          <div class="flex gap-9 h-full">
+            <i class="fa-regular fa-object-ungroup text-7xl "></i>
+            <p class="text-sm">Memiliki pengalaman kerja sabagai desainer grafis menggunakan software <span class="text-blue-300 font-bold">CorelDraw</span> dan <span class="text-blue-300 font-bold">Adobe Photoshop</span> sehingga mendapatkan hasil terbaik dan memuaskan client</p>
+          </div>
+          <a href="#" class="ml-auto bg-blue-300 px-6 py-2 rounded-full text-main hover:bg-blue-400 duration-300 text-sm">More</a>
+        </div>
+
+        <div class="flex flex-col gap-3 sm:w-1/2">
+          <div class="flex gap-9 h-full flex-row-reverse">
+            <i class="fa-solid fa-code text-7xl"></i>
+            <p class="text-sm">Mahasiswa Teknik Informatika di <a href="https://uniramalang.ac.id/" class="text-blue-300 font-bold">UNIRA Malang</a> dan sedang bekerja di <a href="https://indomaret.co.id/" class="text-blue-300 font-bold">PT. Indomarco Prismatama</a> sebagai staff EDP <span class="text-blue-300 font-bold">Electronic Data Processing</span> yang bertanggung jawab atas Database Toko dan sistem perangkat lunak toko</p>
+          </div>
+          <a href="#" class="mr-auto bg-blue-300 px-6 py-2 rounded-full text-main hover:bg-blue-400 duration-300 text-sm">More</a>
+        </div>
+      </div>
+    </section>
+    
+    <div class="px-10 py-10 mx-auto">
+      <h1 class="font-bold text-center text-xl">Kompetensi Keahlian</h1>
+    </div>
+  </main>
+
+
+<script src="/public/js/script.js"></script>
 </body>
 </html>
