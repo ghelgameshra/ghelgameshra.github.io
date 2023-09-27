@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#sidebarMenu{
+    @apply bg-gray-200 text-dark dark:bg-dark dark:text-gray-50;
+    backdrop-filter: blur(5px);
+}

@@ -7,13 +7,85 @@
 
   <link rel="stylesheet" href="/public/css/tailwind_output.css">
   <link rel="stylesheet" href="/public/fontawesome/css/all.css">
+  <link rel="stylesheet" href="/public/css/style.css">
   <link rel="icon" href="/public/images/rocket.svg">
   <script src="/public/js/code.jquery.com_jquery-3.7.1.js"></script>
 </head>
-<body  class="bg-gray-100 text-dark dark:bg-dark dark:text-gray-50">
-  <main>
-    <nav class="flex flex-row items-center mx-auto px-10 sm:px-20 py-4 shadow-md">
+<body class="bg-gray-200 text-dark dark:bg-dark dark:text-gray-50">
+  <main class="min-h-screen bg-inherit">
+    <aside id="sidebarMenu" class="fixed right-0 top-0 h-screen w-[60%] sm:w-[450px] z-30 px-10 sm:px-20 py-4 bg-inherit opacity-80 overflow-y-auto bg-gray-200 text-dark dark:bg-dark dark:text-gray-50 hidden">
+      <div class="w-full">
+        <div class="flex items-center border-b-main pb-5 border-b-[1px] mb-5">
+          <h1 class="font-bold">Ghelgameshra</h1>
+          <button id="sidebarClose" class="ml-auto p-1">
+            <i class="fa-solid fa-xmark text-xl"></i>
+          </button>
+        </div>
 
+        <div>
+          <a href="" class="flex items-center gap-3 p-3 duration-300 hover:bg-gray-300 dark:hover:bg-main hover:rounded-md hover:cursor-pointer">
+            <i class="fa-solid fa-laptop-code"></i>
+            <p>home</p>
+          </a>
+        </div>
+
+        <div>
+          <button id="socialButton" class="flex items-center gap-3 p-3 duration-300 hover:bg-gray-300 dark:hover:bg-main hover:rounded-md hover:cursor-pointer w-full">
+            <i class="fa-solid fa-hashtag"></i>
+            <p>Media Sosial</p>
+            <i class="fa-solid fa-chevron-down ml-auto rotate-0"></i>
+          </button>
+          <ul id="socialMenu" class="ml-5 mb-3 hidden">
+            <li id="fbLink"></li>
+            <li id="igLink"></li>
+            <li id="githubLink"></li>
+          </ul>
+        </div>
+
+        <div>
+          <button id="portoButton" class="flex items-center gap-3 p-3 duration-300 hover:bg-gray-300 dark:hover:bg-main hover:rounded-md hover:cursor-pointer w-full">
+            <i class="fa-regular fa-folder"></i>
+            <p>Portofolio</p>
+            <i class="fa-solid fa-chevron-down ml-auto rotate-0"></i>
+          </button>
+          <ul id="portoMenu" class="ml-5 mb-3 hidden">
+            <li id="link1"></li>
+            <li id="link2"></li>
+            <li id="link3"></li>
+          </ul>
+        </div>
+
+        <div class="flex justify-center flex-row gap-3 items-center text-[#1e293bff] py-2 w-1/3 mx-auto">
+          <span class="dark:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brightness-high" viewBox="0 0 16 16">
+            <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+          </svg>
+        </span>
+          <input type="checkbox" id="darkMode" class="hidden" hidden>
+          <label for="darkMode" class="shadow-none">
+            <div class="w-10 h-5 bg-slate-600 rounded-full flex items-center p-1 cursor-pointer">
+              <div class="w-4 h-4 rounded-full bg-white duration-500" id="dark-mode-button"></div>
+            </div>
+          </label>
+          <span class="dark:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon" viewBox="0 0 16 16">
+              <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"/>
+            </svg>
+          </span>
+        <!-- toggle dark mode -->
+    
+        </div>
+
+        <div>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque consequuntur vitae praesentium laboriosam commodi possimus voluptatum id quis placeat minima assumenda, aut ullam ea quo nihil deleniti tempore voluptates autem.</p>
+        </div>
+      
+      </div>
+    </aside>
+
+    <span class="fixed top-0 left-0 bg-black z-20 w-full h-screen opacity-70 hidden" id="backdrop"></span>
+
+    <nav class="fixed top-0 w-full flex flex-row items-center mx-auto px-10 sm:px-20 py-4 shadow-md">
       <!-- logo -->
       <div class="font-black flex gap-2 cursor-pointer">
         <div class="w-6 h-max bg-dark text-gray-100 text-center rounded-md dark:bg-gray-100 dark:text-dark">
@@ -24,15 +96,15 @@
 
       <!-- sidebar button -->
       <div class="ml-auto">
-        <button id="sidebarButton" onclick="showSidebar()">
-          <i class="fa-solid fa-bars-staggered"></i>
+        <button id="sidebarButton" class="p-1 focus:outline-[1px] focus:ring-[1px]">
+          <i class="fa-solid fa-bars-staggered text-xl"></i>
         </button>
       </div>
     </nav>
 
-    <header class="mx-auto px-10 sm:px-20 py-4 mt-4 flex flex-col gap-16">
+    <header class="mx-auto px-10 sm:px-20 py-4 mt-20 flex flex-col gap-16">
       <div class="flex flex-col gap-1">
-        <p class="font-bold text-secondary">Selamat Datang Di Web Portofolio Saya,</p>
+        <p class="font-bold text-blue-400">Selamat Datang Di Web Portofolio Saya,</p>
         <h1 class="font-black text-4xl md:text-6xl">Rizky Andriawan</h1>
         <caption class="text-sm">Designer & Junior Web Developer</caption>
       </div>
@@ -42,7 +114,7 @@
       <!-- icon -->
       <div class="flex flex-col sm:flex-row gap-16">
         <div class="flex flex-col gap-3 sm:w-1/2 grow">
-          <div class="flex gap-9 h-full">
+          <div class="flex gap-9 h-full sm:flex-col">
             <i class="fa-regular fa-object-ungroup text-7xl "></i>
             <p class="text-sm">Memiliki pengalaman kerja sabagai desainer grafis menggunakan software <span class="text-blue-300 font-bold">CorelDraw</span> dan <span class="text-blue-300 font-bold">Adobe Photoshop</span> sehingga mendapatkan hasil terbaik dan memuaskan client</p>
           </div>
@@ -50,7 +122,7 @@
         </div>
 
         <div class="flex flex-col gap-3 sm:w-1/2">
-          <div class="flex gap-9 h-full flex-row-reverse">
+          <div class="flex gap-9 h-full flex-row-reverse sm:flex-col">
             <i class="fa-solid fa-code text-7xl"></i>
             <p class="text-sm">Mahasiswa Teknik Informatika di <a href="https://uniramalang.ac.id/" class="text-blue-300 font-bold">UNIRA Malang</a> dan sedang bekerja di <a href="https://indomaret.co.id/" class="text-blue-300 font-bold">PT. Indomarco Prismatama</a> sebagai staff EDP <span class="text-blue-300 font-bold">Electronic Data Processing</span> yang bertanggung jawab atas Database Toko dan sistem perangkat lunak toko</p>
           </div>
