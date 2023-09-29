@@ -13,9 +13,11 @@
 </head>
 <body class="bg-gray-200 text-dark dark:bg-dark dark:text-gray-50">
   <main class="min-h-screen bg-inherit">
-    <aside id="sidebarMenu" class="fixed right-0 top-0 h-screen w-[60%] sm:w-[450px] z-30 px-10 sm:px-20 py-4 bg-inherit opacity-80 overflow-y-auto bg-gray-200 text-dark dark:bg-dark dark:text-gray-50 hidden">
+    
+    <span class="fixed top-0 left-0 bg-black z-20 w-full h-screen opacity-70 hidden" id="backdrop"></span>
+    <aside id="sidebarMenu" class="fixed right-0 top-0 h-screen w-[60%] sm:w-[450px] z-30 px-10 sm:px-20 py-4 overflow-y-auto bg-inherit opacity-95 hidden">
       <div class="w-full">
-        <div class="flex items-center border-b-main pb-5 border-b-[1px] mb-5">
+        <div class="flex items-center border-b-main dark:border-b-gray-200 pb-5 border-b-[1px] mb-5">
           <h1 class="font-bold">Ghelgameshra</h1>
           <button id="sidebarClose" class="ml-auto p-1">
             <i class="fa-solid fa-xmark text-xl"></i>
@@ -55,7 +57,7 @@
           </ul>
         </div>
 
-        <div class="flex justify-center flex-row gap-3 items-center text-[#1e293bff] py-2 w-1/3 mx-auto">
+        <div class="flex justify-center flex-row gap-3 items-center text-[#1e293bff] py-5 w-1/3 mx-auto">
           <span class="dark:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brightness-high" viewBox="0 0 16 16">
             <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
@@ -75,17 +77,11 @@
         <!-- toggle dark mode -->
     
         </div>
-
-        <div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque consequuntur vitae praesentium laboriosam commodi possimus voluptatum id quis placeat minima assumenda, aut ullam ea quo nihil deleniti tempore voluptates autem.</p>
-        </div>
       
       </div>
     </aside>
 
-    <span class="fixed top-0 left-0 bg-black z-20 w-full h-screen opacity-70 hidden" id="backdrop"></span>
-
-    <nav class="fixed top-0 w-full flex flex-row items-center mx-auto px-10 sm:px-20 py-4 shadow-md">
+    <nav class="fixed top-0 w-full flex flex-row items-center mx-auto px-10 sm:px-20 py-4 shadow-md backdrop-blur-sm">
       <!-- logo -->
       <div class="font-black flex gap-2 cursor-pointer">
         <div class="w-6 h-max bg-dark text-gray-100 text-center rounded-md dark:bg-gray-100 dark:text-dark">
@@ -131,8 +127,59 @@
       </div>
     </section>
     
-    <div class="px-10 py-10 mx-auto">
-      <h1 class="font-bold text-center text-xl">Kompetensi Keahlian</h1>
+    <div class="px-10 py-10 mx-auto mt-3">
+      <h1 class="font-bold text-center text-xl sm:text-2xl md:text-3xl mb-3">Kompetensi Keahlian</h1>
+      
+      <!-- keahlian -->
+      <div class="flex flex-wrap gap-3 justify-center w-full sm:w-full md:w-[70%] py-10 mx-auto">  
+          <div class="w-44 hover:cursor-pointer hover:scale-105 duration-300 bg-gradient-to-br from-main via-secondary to-dark text-gray-100 text-center p-4 rounded-md">
+            <i class="text-3xl fa-brands fa-html5"></i>
+            <h1>HTML</h1>
+          </div>
+  
+          <div class="w-44 hover:cursor-pointer hover:scale-105 duration-300 bg-gradient-to-br from-main via-secondary to-dark text-gray-100 text-center p-4 rounded-md">
+            <i class="text-3xl fa-brands fa-css3-alt"></i>
+            <h1>CSS</h1>
+          </div>
+  
+          <div class="w-44 hover:cursor-pointer hover:scale-105 duration-300 bg-gradient-to-br from-main via-secondary to-dark text-gray-100 text-center p-4 rounded-md">
+            <i class="text-3xl fa-brands fa-js"></i>
+            <h1>Javascript</h1>
+          </div>
+  
+          <div class="w-44 hover:cursor-pointer hover:scale-105 duration-300 bg-gradient-to-br from-main via-secondary to-dark text-gray-100 text-center p-4 rounded-md">
+            <i class="text-3xl fa-brands fa-linux"></i>
+            <h1>Linux</h1>
+          </div>
+  
+          <div class="w-44 hover:cursor-pointer hover:scale-105 duration-300 bg-gradient-to-br from-main via-secondary to-dark text-gray-100 text-center p-4 rounded-md">
+            <i class="text-3xl fa-brands fa-php"></i>
+            <h1>PHP</h1>
+          </div>
+  
+          <div class="w-44 hover:cursor-pointer hover:scale-105 duration-300 bg-gradient-to-br from-main via-secondary to-dark text-gray-100 text-center p-4 rounded-md">
+            <i class="text-3xl fab fa-laravel"></i>
+            <h1>Laravel</h1>
+          </div>
+
+          <div class="w-44 hover:cursor-pointer hover:scale-105 duration-300 bg-gradient-to-br from-main via-secondary to-dark text-gray-100 text-center p-4 rounded-md">
+            <i class="text-3xl fa-solid fa-pencil"></i>
+            <h1>CorelDraw</h1>
+          </div>
+
+          <div class="w-44 hover:cursor-pointer hover:scale-105 duration-300 bg-gradient-to-br from-main via-secondary to-dark text-gray-100 text-center p-4 rounded-md">
+            <i class="text-3xl fa-solid fa-pencil"></i>
+            <h1>Photoshop</h1>
+          </div>
+
+          <div class="w-44 hover:cursor-pointer hover:scale-105 duration-300 bg-gradient-to-br from-main via-secondary to-dark text-gray-100 text-center p-4 rounded-md">
+            <i class="text-3xl fa-solid fa-pencil"></i>
+            <h1>Figma</h1>
+          </div>
+  
+      </div>
+
+
     </div>
   </main>
 
