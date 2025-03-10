@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyek Vite dengan Bootstrap & jQuery</title>
+  <script type="module" crossorigin src="/assets/index-DfNgrnK5.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BFzzcp9T.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-dark mx-auto" data-bs-theme="dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">Logbook</a>
+    </div>
+  </nav>
+
+  <div class="row mt-3 container mx-auto g-2">
+
+    <div class="col-12 col-md-6">
+      <div class="card">
+        <div class="card-body bg-success text-white">
+          <p class="mb-0 fs-6 fw-bold">Gross Revenue</p>
+          <small>Rp. 0</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6">
+      <div class="card">
+        <div class="card-body bg-success text-white">
+          <p class="mb-0 fs-6 fw-bold">Earnings</p>
+          <small>Rp. 0</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6">
+      <div class="card">
+        <div class="card-body bg-primary text-white">
+          <p class="mb-0 fs-6 fw-bold">Akumulasi Total Kas</p>
+          <small>Rp. 0</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6">
+      <div class="card">
+        <div class="card-body bg-danger text-white">
+          <p class="mb-0 fs-6 fw-bold">Akumulasi Pengeluaran</p>
+          <small>Rp. 0</small>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <small>Detail Penjualan</small>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover text-nowrap" id="penjualanTable">
+              <thead>
+                <tr>
+                  <th scope="col" style="width: 5%;">No</th>
+                  <th scope="col">Referensi</th>
+                  <th scope="col">Nominal</th>
+                  <th scope="col">Tanggal</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <small>Detail Pengeluaran</small>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover text-nowrap" id="pengeluaranTable">
+              <thead>
+                <tr>
+                  <th scope="col">No</th>
+                  <th scope="col">Referensi</th>
+                  <th scope="col">Nama Barang</th>
+                  <th scope="col">Harga</th>
+                  <th scope="col">Jumlah</th>
+                  <th scope="col">Subtotal</th>
+                  <th scope="col">Tanggal</th>
+                  <th scope="col">Nota</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalInputSales" tabindex="-1" aria-labelledby="modalInputSalesLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modalInputSalesLabel">Input Nominal Sales</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+
+          <form action="" method="POST" id="inputSalesForm">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="referensi" readonly value="#">
+              <label for="floatingInput">Referensi</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="date" class="form-control" name="salesDate">
+              <label for="floatingInput">Tanggal</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="number" class="form-control" name="salesTotal" value="0" autocomplete="off">
+              <label for="floatingInput">Nominal</label>
+            </div>
+          </form>
+
+
+        </div>
+        <div class="modal-footer">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-secondary" id="closeModalSales" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-sm btn-primary" id="saveSales">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalInputPengeluaran" tabindex="-1" aria-labelledby="modalInputPengeluaranLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modalInputPengeluaranLabel">Input Pengeluaran</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+          <form action="" method="POST" id="inputPengeluaranForm">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="referensiPengeluaran" readonly value="#">
+              <label for="floatingInput">Referensi</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="date" class="form-control" name="pengeluaranDate">
+              <label for="floatingInput">Tanggal</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="namaBarang" value="#" autocomplete="off">
+              <label for="floatingInput">Nama Barang</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="number" class="form-control" name="hargaSatuan" value="0" autocomplete="off">
+              <label for="floatingInput">Harga Satuan</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="number" class="form-control" name="jumlah" value="1" autocomplete="off">
+              <label for="floatingInput">Jumlah</label>
+            </div>
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-secondary" id="closeModalPengeluaran" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-sm btn-primary" id="savePengeluaran">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalInputSaldoAwal" tabindex="-1" aria-labelledby="modalInputSaldoAwalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modalInputSaldoAwalLabel">Input Saldo Awal</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+
+          <form action="" method="POST" id="inputSaldoForm">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="referensiSaldo" readonly value="#">
+              <label for="floatingInput">Referensi</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="date" class="form-control" name="saldoDate">
+              <label for="floatingInput">Tanggal Masuk Saldo</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="number" class="form-control" name="saldoTotal" value="0" autocomplete="off">
+              <label for="floatingInput">Nominal</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="saldoAsal" value="RIZKY ANDRIAWAN" autocomplete="off">
+              <label for="floatingInput">Asal Saldo</label>
+            </div>
+          </form>
+
+
+        </div>
+        <div class="modal-footer">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-secondary" id="closeModalSaldo" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-sm btn-primary" id="saveSaldo">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="btn-group fixed-bottom col-12 col-md-4 d-flex justify-content-center mx-auto mb-2">
+    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modalInputSales">
+      Input Pendapatan
+    </button>
+    <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#modalInputSaldoAwal">
+      Input Modal
+    </button>
+    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#modalInputPengeluaran">
+      Input Pengeluaran
+    </button>
+  </div>
+
+</body>
+</html>
